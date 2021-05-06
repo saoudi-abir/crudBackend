@@ -1,9 +1,12 @@
+const cors = require("cors");
 const express= require('express');
 require('./utils/db');
 const User = require('./utils/db')
 const app = express();
+//midellwares
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+app.use(cors());
 app.listen(3000);
 
 app.post('/users', async (req,res) => {
